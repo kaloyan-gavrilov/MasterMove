@@ -6,6 +6,7 @@ import 'package:learning/components/display_box.dart';
 import 'package:learning/components/mybutton.dart';
 import 'package:learning/pages/login_or_signup_page.dart';
 import 'package:learning/pages/test_for_expert.dart';
+import 'package:learning/pages/test_for_student.dart';
 // import 'package:learning/pages/login_or_signup_page.dart';
 // import 'package:google_nav_bar/google_nav_bar.dart';
 // import 'package:iconsax/iconsax.dart';
@@ -271,6 +272,22 @@ class ProfilePage extends StatelessWidget {
                                       test_for_expert_list()));
                         }),
                   ),
+
+                  //test student
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: MyButton(
+                        text: "Test for student",
+                        onTap: () async {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Test_for_student()));
+                        }),
+                  ),
+
 
                   //log out
                   Padding(

@@ -3,37 +3,30 @@ import 'package:learning/components/chess_puzzle.dart';
 import 'package:learning/components/mybutton.dart';
 import 'package:learning/pages/home_page.dart';
 
-class Chess_levels extends StatefulWidget {
-  Chess_levels({Key? key});
+class Test_for_student extends StatefulWidget {
+  Test_for_student({Key? key});
 
   @override
-  State<Chess_levels> createState() => _Chess_level1State();
+  State<Test_for_student> createState() => Test_for_studentState();
 }
 
-class _Chess_level1State extends State<Chess_levels> {
+class Test_for_studentState extends State<Test_for_student> {
   int _currentIndex = 0;
 
 
   final List<Map<String, String>> items = [
-    {'fen': 'r2r4/pp1R3p/2p2p2/2B1Pp1k/2b2P2/P7/1PP4P/1K4R1', 'mateIn': '1'},
-    {'fen': '3r2rk/p5pp/1p4n1/3p2N1/2pP4/2P1R3/qPBQ1PPP/6K1', 'mateIn': '1'},
-    {'fen': 'kr6/1p6/p7/4b3/8/8/1P4BP/R6K', 'mateIn': '1'},
+    {'fen': 'r4r1k/p4Pqp/1p6/3P2P1/1P6/P6Q/5PP1/B5KR', 'mateIn': '1'},
+    {'fen': 'r1b2r1k/1p1n2b1/1np1pN1p/p7/3P4/qP2B3/2Q2PPP/2RR2K1', 'mateIn': '1'},
     {
-      'fen': 'r1b2rk1/pp3pp1/2nbpq1p/2pp2N1/3P3P/2P1P3/PPQ2PP1/RN2KB1R',
+      'fen': 'r6k/2B5/6KN/8/8/8/p7/8',
       'mateIn': '1'
     },
-    {
-      'fen': 'r1b2b1r/pp3Qp1/2nkn2p/3ppP1p/P1p5/1NP1NB2/1PP1PPR1/1K1R3q',
-      'mateIn': '1'
-    },
-    {
-      'fen': '3nkr2/p1R2pp1/7p/5N2/1b6/1P5P/P4P2/6K1',
-      'mateIn': '1'
-    },
-    {'fen': '3R4/1q4pk/2b1p3/pn2P1P1/1p6/2p1B3/PPP5/2K3R1', 'mateIn': '1'},
-    {'fen': '6k1/6p1/4nPNq/4P1NP/6K1/8/8/8', 'mateIn': '1'},
-    {'fen': '2r1b3/2q1br2/ppn1pN1k/4p3/8/2PB2R1/P4PPP/6K1', 'mateIn': '1'},
-    {'fen': '6q1/R2Q3p/1p1p1ppk/1P1N4/1P2rP2/6P1/7P/6K1', 'mateIn': '1'},
+    {'fen': '1r5k/6p1/1r2B3/1ppP4/3b1R2/8/6PP/5R1K', 'mateIn': '1'},
+    {'fen': '2k3nr/ppp2pp1/2q5/4p3/1P5p/P2QP3/4BPPP/3R2K1', 'mateIn': '1'},
+    {'fen': 'rnbq3r/pppp2pp/1b6/8/1P2k3/8/PBPP1PPP/R2QK2R', 'mateIn': '1'},
+    
+
+    
   ];
 
   @override
@@ -56,7 +49,7 @@ class _Chess_level1State extends State<Chess_levels> {
         : Scaffold(
               appBar: AppBar(
                 centerTitle: true,
-                title: const Text('You are expert', style: TextStyle(fontWeight: FontWeight.w800),),
+                title: const Text('You have completed test', style: TextStyle(fontWeight: FontWeight.w800),),
               ),
               body: Center(
                 child: MyButton(
