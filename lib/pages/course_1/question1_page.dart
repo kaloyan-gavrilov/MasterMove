@@ -3,6 +3,7 @@ import 'package:learning/components/mybutton.dart';
 import 'package:learning/components/option_box.dart';
 import 'package:learning/pages/course_1/video1_page.dart';
 import 'package:learning/pages/course_1/video2_page.dart';
+import 'package:learning/services/set_exp.dart';
 
 class Question1Page extends StatefulWidget {
   Question1Page({
@@ -88,6 +89,7 @@ class _Question1PageState extends State<Question1Page> {
                   child: AnotherButton(
                     onTap: () {
                       debugPrint("button pressed");
+                      addExpToFirebase();
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => Video1Page()),

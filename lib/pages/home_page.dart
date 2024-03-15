@@ -7,6 +7,7 @@ import 'package:learning/pages/course_2/info_page.dart';
 import 'package:learning/pages/login_or_signup_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:learning/pages/test_for_student.dart';
 import 'package:learning/services/level_function.dart';
 import 'package:learning/services/nav_controller.dart';
 import 'package:get/get.dart';
@@ -32,17 +33,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.grey[800],
-      //   automaticallyImplyLeading: false,
-      //   actions: [
-      //     IconButton(
-      //       onPressed: (logUserOut),
-      //       icon: const Icon(Icons.logout),
-      //       color: Colors.white,
-      //     ),
-      //   ],
-      // ),
       body: StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
             .collection("Users")
@@ -56,55 +46,81 @@ class _HomePageState extends State<HomePage> {
             int userExp = userData['exp'];
             LevelInfo userLevel = calculateLevel(userExp);
 
-            return Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20, top: 30),
-                      child: Text(
-                        'Hi, ' + userData["username"] + '!',
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontFamily: 'Roboto',
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 30),
+                        child: Text(
+                          'Hi, ' + userData["username"] + '!',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontFamily: 'Roboto',
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20, top: 40),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(255, 117, 24, 0.4),
-                            borderRadius: BorderRadius.circular(10)),
-                        padding: EdgeInsets.all(10),
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          backgroundColor: Colors.blueGrey,
-                          value: userLevel.remainingExp /
-                              ((userLevel.level + 2) * 10),
-                        ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20, top: 40),
+                        child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10)),
+                            padding: EdgeInsets.all(10),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                CircularProgressIndicator(
+                                  color: Color.fromRGBO(255, 117, 24, 1),
+                                  backgroundColor: Colors.blueGrey,
+                                  value: userLevel.remainingExp /
+                                      ((userLevel.level + 2) * 10),
+                                ),
+                                Text(
+                                  userLevel.level.toString(),
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(255, 117, 24, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            )),
                       ),
-                    ),
-                  ],
-                ),
-                CourseTile(
-                  title: 'Basics of Chess',
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Info1Page()));
-                  },
-                  imageAddress: 'lib/images/course_tile_bg.jpg',
-                ),
-                CourseTile(
-                  title: 'Advanced Course',
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Info2Page()));
-                  },
-                  imageAddress: 'lib/images/course2_tile_bg.jpeg',
-                ),
-              ],
+                    ],
+                  ),
+                  CourseTile(
+                    title: 'Basics of Chess',
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Info1Page()));
+                    },
+                    imageAddress: 'lib/images/course_tile_bg.jpg',
+                  ),
+
+                  //Test
+                  CourseTile(
+                      title: "Test",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Test_for_student()));
+                      },
+                      imageAddress: 'lib/images/test_bg.jpg'),
+
+                  //Course 2
+                  CourseTile(
+                    title: 'Advanced Course',
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Info2Page()));
+                    },
+                    imageAddress: 'lib/images/course2_tile_bg.jpeg',
+                  ),
+                ],
+              ),
             );
           } else if (snapshot.hasError) {
             return Center(

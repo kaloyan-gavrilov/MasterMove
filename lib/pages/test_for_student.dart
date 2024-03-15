@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning/components/chess_puzzle.dart';
 import 'package:learning/components/mybutton.dart';
 import 'package:learning/pages/home_page.dart';
+import 'package:learning/services/set_exp.dart';
 
 class Test_for_student extends StatefulWidget {
   Test_for_student({Key? key});
@@ -30,19 +31,22 @@ class Test_for_studentState extends State<Test_for_student> {
       appBar: AppBar(
         title: const Center(
             child: Text(
-          'You have done test',
+          'You have done the test',
           style: TextStyle(fontWeight: FontWeight.w800),
         )),
         automaticallyImplyLeading: false,
       ),
       body: Center(
-        child: AnotherButton(
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => NavBar()));
-          },
-          text: 'Navigate to Profile Page',
-          canPressNext: true,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: AnotherButton(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => NavBar()));
+            },
+            text: 'Navigate to Home Page',
+            canPressNext: true,
+          ),
         ),
       ),
     );
@@ -58,6 +62,7 @@ class Test_for_studentState extends State<Test_for_student> {
         mateIn: int.parse(items[_currentIndex]['mateIn']!),
         onPuzzleSolved: () => setState(() {
           _currentIndex = _currentIndex + 1;
+          addExpToFirebase();
         }),
       );
     } else {

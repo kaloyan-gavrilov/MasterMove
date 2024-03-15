@@ -35,24 +35,34 @@ class _Chess_level1State extends State<Chess_levels> {
   ];
 
   void addToExperts(BuildContext context) {
-  sendUserToFirebase();
-  Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar()));
-}
+    sendUserToFirebase();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar()));
+  }
 
-Widget done(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(title: const Center(child: Text('You have become an expert', style: TextStyle(fontWeight: FontWeight.w800),)),
-    automaticallyImplyLeading: false,),
-    body: Center(
-      child: AnotherButton(
-        onTap: () {
-          addToExperts(context);
-        },
-        text: 'Navigate to Profile Page', canPressNext: true,
+  Widget done(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(
+            child: Text(
+          'You have become an expert',
+          style: TextStyle(fontWeight: FontWeight.w800),
+        )),
+        automaticallyImplyLeading: false,
       ),
-    ),
-  );
-}
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: AnotherButton(
+            onTap: () {
+              addToExperts(context);
+            },
+            text: 'Navigate to Profile Page',
+            canPressNext: true,
+          ),
+        ),
+      ),
+    );
+  }
 
   void sendUserToFirebase() async {
     User? currentUser = FirebaseAuth.instance.currentUser;
@@ -66,18 +76,18 @@ Widget done(BuildContext context) {
 
   @override
   Widget build(BuildContext context) {
-   if (_currentIndex < items.length) {
-    return ChessPuzzle(
-      items: items.length,
-      currentindex: _currentIndex,
-      fen: items[_currentIndex]['fen']!,
-      mateIn: int.parse(items[_currentIndex]['mateIn']!),
-      onPuzzleSolved: () => setState(() {
-        _currentIndex = _currentIndex + 1;
-      }),
-    );
-  } else {
-    return done(context);
-  }
+    if (_currentIndex < items.length) {
+      return ChessPuzzle(
+        items: items.length,
+        currentindex: _currentIndex,
+        fen: items[_currentIndex]['fen']!,
+        mateIn: int.parse(items[_currentIndex]['mateIn']!),
+        onPuzzleSolved: () => setState(() {
+          _currentIndex = _currentIndex + 1;
+        }),
+      );
+    } else {
+      return done(context);
+    }
   }
 }

@@ -3,6 +3,7 @@ import 'package:learning/components/mybutton.dart';
 import 'package:learning/components/option_box.dart';
 import 'package:learning/pages/course_1/video2_page.dart';
 import 'package:learning/pages/course_1/video3_page.dart';
+import 'package:learning/services/set_exp.dart';
 
 class Question2Page extends StatefulWidget {
   Question2Page({
@@ -103,6 +104,7 @@ class _Question2PageState extends State<Question2Page> {
                   child: AnotherButton(
                       onTap: canPressNext
                           ? () {
+                              addExpToFirebase();
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
