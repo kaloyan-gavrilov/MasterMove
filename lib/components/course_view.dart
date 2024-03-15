@@ -27,11 +27,10 @@ class CourseTile extends StatelessWidget {
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black
-                    .withOpacity(0.3), // Set shadow color and opacity
-                spreadRadius: 2, // Set the spread radius of the shadow
-                blurRadius: 4, // Set the blur radius of the shadow
-                offset: Offset(0, 2), // Set the offset of the shadow
+                color: Colors.black.withOpacity(0.3),
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: Offset(0, 2),
               ),
             ],
           ),

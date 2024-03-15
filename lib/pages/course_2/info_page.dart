@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:learning/components/mybutton.dart';
-import 'package:learning/pages/course_1/video1_page.dart';
+import 'package:learning/pages/course_2/video1_page.dart';
 import 'package:learning/pages/home_page.dart';
 
-class Info1Page extends StatelessWidget {
-  Info1Page({super.key});
+class Info2Page extends StatelessWidget {
+  Info2Page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class Info1Page extends StatelessWidget {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('lib/images/course_tile_bg.jpg'),
+                image: AssetImage('lib/images/course2_tile_bg.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -57,7 +57,7 @@ class Info1Page extends StatelessWidget {
                   ],
                 ),
                 child: Text(
-                  "Join our beginner's course, 'Basics of Chess', and unlock the secrets of the game from the ground up. Explore the chessboard, learn piece movement, and discover basic tactics and opening principles.",
+                  "Dive deep into complex strategic concepts like pawn structures, piece coordination, and positional sacrifices. Learn from seasoned masters through theoretical lessons and practical examples, sharpening your analytical skills and strategic intuition. Elevate your game and unleash your full potential on the chessboard with our comprehensive course.",
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -73,7 +73,7 @@ class Info1Page extends StatelessWidget {
               child: AnotherButton(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Video1Page()));
+                      MaterialPageRoute(builder: (context) => Video11Page()));
                 },
                 text: "Next",
                 canPressNext: true,

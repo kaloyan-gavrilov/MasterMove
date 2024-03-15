@@ -27,6 +27,16 @@ class _VideoPlayerState extends State<VideoPlayer> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              spreadRadius: 4,
+              blurRadius: 4,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
         child: YoutubePlayerBuilder(
           player: YoutubePlayer(
             controller: _controller,

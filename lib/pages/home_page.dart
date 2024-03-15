@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learning/components/course_view.dart';
 import 'package:learning/pages/course_1/info_page.dart';
+import 'package:learning/pages/course_2/info_page.dart';
 import 'package:learning/pages/login_or_signup_page.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:iconsax/iconsax.dart';
@@ -91,9 +92,17 @@ class _HomePageState extends State<HomePage> {
                   title: 'Basics of Chess',
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => InfoPage()));
+                        MaterialPageRoute(builder: (context) => Info1Page()));
                   },
                   imageAddress: 'lib/images/course_tile_bg.jpg',
+                ),
+                CourseTile(
+                  title: 'Advanced Course',
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Info2Page()));
+                  },
+                  imageAddress: 'lib/images/course2_tile_bg.jpeg',
                 ),
               ],
             );

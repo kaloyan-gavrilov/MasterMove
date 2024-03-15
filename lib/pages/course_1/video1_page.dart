@@ -4,17 +4,10 @@ import 'package:flutter/widgets.dart';
 import 'package:learning/components/mybutton.dart';
 import 'package:learning/components/video_player.dart';
 import 'package:learning/pages/course_1/info_page.dart';
-import 'package:learning/pages/course_1/video_or_question_page.dart';
+import 'package:learning/pages/course_1/question1_page.dart';
 
-class VideoPage extends StatelessWidget {
-  final String videoURL;
-  final String description;
-  final index;
-  VideoPage(
-      {super.key,
-      required this.videoURL,
-      required this.description,
-      required this.index});
+class Video1Page extends StatelessWidget {
+  Video1Page({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +25,34 @@ class VideoPage extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        VideoPlayer(url: videoURL),
+        VideoPlayer(
+            url:
+                "https://www.youtube.com/watch?v=OCSbzArwB10&ab_channel=GothamChess"),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
-              border: Border.all(
-                color: Color.fromRGBO(255, 117, 24, 0.7),
-                width: 2,
+            border: Border.all(
+              color: Colors.grey.shade400,
+              width: 2,
+            ),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: Offset(0, 2),
               ),
-              borderRadius: BorderRadius.circular(20)),
+            ],
+          ),
           child: Text(
-            description,
+            '''
+- Understanding the setup and movements of each chess piece is crucial for developing a strong foundation in chess. 
+- Recognizing threats, capturing opportunities, and defending pieces are crucial skills that players need to develop. 
+- Controlling the center of the board and understanding tactical patterns can give players an advantage in the middle game.
+        ''',
             style: TextStyle(fontSize: 16),
             textAlign: TextAlign.left,
           ),
@@ -59,16 +68,14 @@ class VideoPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: AnotherButton(
-                      onTap: () {
-                        if (index == 0) {
-                          debugPrint("button pressed");
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => InfoPage()));
-                        }
-                      },
-                      text: "Back"),
+                    onTap: () {
+                      debugPrint("button pressed");
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Info1Page()));
+                    },
+                    text: "Back",
+                    canPressNext: true,
+                  ),
                 ),
                 SizedBox(
                   width: 10,
@@ -79,11 +86,10 @@ class VideoPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => VideoOrQuestionPage(
-                                    continueToQuestions: true,
-                                  )));
+                              builder: (context) => Question1Page()));
                     },
                     text: "Next",
+                    canPressNext: true,
                   ),
                 ),
               ],
