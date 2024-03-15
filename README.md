@@ -8,7 +8,7 @@
 
 MasterMove is a mobile app designed to educate users on various topics (hobbies) and connect them with experts on the subject and other users, all in an interactive and fun way. Whether you want to improve your chess skills, master a new musical instrument, or perfect your photography skills,  MasterMove can be of help.
 
-## Features <a name="features"></a>
+## Features
 
 - Courses with video 
 - Interactive tests
@@ -18,3 +18,7 @@ MasterMove is a mobile app designed to educate users on various topics (hobbies)
 ## Structure
 ![Image of structure](Images/project_structure.png)
 
+## Technologies used
+- Flutter
+- Dart
+- Firebase
