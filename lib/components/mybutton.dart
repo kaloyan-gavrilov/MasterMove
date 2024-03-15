@@ -37,3 +37,39 @@ class MyButton extends StatelessWidget {
         ));
   }
 }
+
+class AnotherButton extends StatelessWidget {
+  final Function()? onTap;
+  final String text;
+  final bool canPressNext;
+
+  const AnotherButton(
+      {super.key,
+      required this.text,
+      required this.onTap,
+      required this.canPressNext});
+
+  @override
+  Widget build(BuildContext context) {
+    Color buttonColor = canPressNext
+        ? Color.fromARGB(255, 229, 205, 233)
+        : Colors.grey.shade200;
+    return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          height: 40,
+          decoration: BoxDecoration(
+              color: buttonColor,
+              borderRadius: BorderRadius.all(Radius.circular(15))),
+          child: Center(
+              child: Text(
+            text,
+            style: GoogleFonts.inter(
+                textStyle: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700)),
+          )),
+        ));
+  }
+}
