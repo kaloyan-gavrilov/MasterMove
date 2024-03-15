@@ -1,16 +1,16 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learning/components/mybutton.dart';
 import 'package:learning/components/user_tile.dart';
+import 'package:learning/pages/chat_page.dart';
 import 'package:learning/pages/chat_room.dart';
-import 'package:learning/pages/expert_chat_page.dart';
 import 'package:learning/services/chat_service.dart';
 
-class ChatPage extends StatelessWidget {
+
+
+class Expert_chat_page extends StatelessWidget {
   final User? user;
-  ChatPage({super.key, required this.user});
+ Expert_chat_page({super.key, required this.user});
 
   final ChatService _chatService = ChatService();
 
@@ -26,7 +26,7 @@ class ChatPage extends StatelessWidget {
               text: 'Members',
               onTap: () {
                 Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Expert_chat_page(user: FirebaseAuth.instance.currentUser)));
+              context, MaterialPageRoute(builder: (context) => ChatPage(user: FirebaseAuth.instance.currentUser)));
               },
             ),
             MyButton(
@@ -83,3 +83,4 @@ class ChatPage extends StatelessWidget {
     }
   }
 }
+
