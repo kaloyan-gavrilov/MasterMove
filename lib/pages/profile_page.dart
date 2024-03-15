@@ -1,21 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learning/components/display_box.dart';
 import 'package:learning/components/mybutton.dart';
 import 'package:learning/pages/login_or_signup_page.dart';
-import 'package:learning/pages/test_for_expert.dart';
-import 'package:learning/pages/test_for_student.dart';
-// import 'package:learning/pages/login_or_signup_page.dart';
-// import 'package:google_nav_bar/google_nav_bar.dart';
-// import 'package:iconsax/iconsax.dart';
+import 'package:learning/pages/page_before_test.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   final User? user;
 
   ProfilePage({super.key, required this.user});
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
@@ -187,10 +189,17 @@ class ProfilePage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final userData = snapshot.data!.data() as Map<String, dynamic>;
+
+            bool showBecomeAnExpert = true;
+            //don't display if already an expert
+            if (userData['type'] != "student") {
+              showBecomeAnExpert = false;
+            }
+
             return SafeArea(
                 child: Center(
               child: SingleChildScrollView(
-                reverse: true,
+                reverse: false,
                 child: Column(children: [
                   const SizedBox(height: 68),
 
@@ -258,36 +267,73 @@ class ProfilePage extends StatelessWidget {
                     height: 30,
                   ),
 
-                  //Become an expert
+                  // //Become an expert
 
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: MyButton(
-                        text: "Become expert",
-                        onTap: () async {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      test_for_expert_list()));
-                        }),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(top: 20),
+                  //   child: MyButton(
+                  //       text: "Become expert",
+                  //       onTap: () async {
+                  //         Navigator.push(
+                  //             context,
+                  //             MaterialPageRoute(
+                  //                 builder: (context) =>
+                  //                     test_for_expert_list()));
+                  //       }),
+                  // ),
+
+                  // //test student
+                  // Padding(
+                  //   padding: const EdgeInsets.only(top: 20),
+                  //   child: MyButton(
+                  //       text: "Test for student",
+                  //       onTap: () async {
+                  //         Navigator.push(
+                  //             context,
+                  //             MaterialPageRoute(
+                  //                 builder: (context) => Test_for_student()));
+                  //       }),
+                  // ),
+
+                  //User type field
+                  DisplayBox(
+                      text: userData['type'],
+                      sectionName: "User type",
+                      onTap: () {}),
+
+                  //button to become an expert
+                  Visibility(
+                    visible: showBecomeAnExpert,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Want to become an expert?',
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              )),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          GestureDetector(
+                            onTap: () async {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PageBeforeTest()));
+                            },
+                            child: Text('Take the test',
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.underline)),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
-
-                  //test student
-
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: MyButton(
-                        text: "Test for student",
-                        onTap: () async {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Test_for_student()));
-                        }),
-                  ),
-
 
                   //log out
                   Padding(
