@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,39 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAnK7pLrR9OEdBJ-OcREM8WHehhHzqFN4s',
-    appId: '1:685114492960:web:19d45d4dd92789fb199445',
-    messagingSenderId: '685114492960',
-    projectId: 'teach-up-9fa50',
-    authDomain: 'teach-up-9fa50.firebaseapp.com',
-    storageBucket: 'teach-up-9fa50.appspot.com',
-    measurementId: 'G-B4N6THHB6H',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCW30kivTCa5SefR5mOgRX1U6yl5KTlLwI',
-    appId: '1:685114492960:android:5043752c10797a8d199445',
-    messagingSenderId: '685114492960',
-    projectId: 'teach-up-9fa50',
-    storageBucket: 'teach-up-9fa50.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAB27dpZd1m14SBwT8iUM_jeXCn8k6RvCg',
-    appId: '1:685114492960:ios:203e1309afe18fc0199445',
-    messagingSenderId: '685114492960',
-    projectId: 'teach-up-9fa50',
-    storageBucket: 'teach-up-9fa50.appspot.com',
-    iosBundleId: 'com.example.learning',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAB27dpZd1m14SBwT8iUM_jeXCn8k6RvCg',
-    appId: '1:685114492960:ios:1c5c2981bd85d457199445',
-    messagingSenderId: '685114492960',
-    projectId: 'teach-up-9fa50',
-    storageBucket: 'teach-up-9fa50.appspot.com',
-    iosBundleId: 'com.example.learning.RunnerTests',
+    apiKey: 'AIzaSyD8ISLC9kW3za-hVMuU2UL7l8TBD6b9LaQ',
+    appId: '1:503781224131:android:f39fdeb56318f029653c76',
+    messagingSenderId: '503781224131',
+    projectId: 'mastermove-ace75',
+    storageBucket: 'mastermove-ace75.appspot.com',
   );
 }

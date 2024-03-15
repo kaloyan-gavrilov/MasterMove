@@ -1,26 +1,43 @@
 {
   "project_info": {
-    "project_number": "685114492960",
-    "project_id": "teach-up-9fa50",
-    "storage_bucket": "teach-up-9fa50.appspot.com"
+    "project_number": "503781224131",
+    "project_id": "mastermove-ace75",
+    "storage_bucket": "mastermove-ace75.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:685114492960:android:5043752c10797a8d199445",
+        "mobilesdk_app_id": "1:503781224131:android:f39fdeb56318f029653c76",
         "android_client_info": {
           "package_name": "com.example.learning"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "503781224131-deca5e1pq7als27pp6ma67ur61hmh32t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCW30kivTCa5SefR5mOgRX1U6yl5KTlLwI"
+          "current_key": "AIzaSyD8ISLC9kW3za-hVMuU2UL7l8TBD6b9LaQ"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503781224131-deca5e1pq7als27pp6ma67ur61hmh32t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "503781224131-2dg9sr8oohh8dt5frr050ovtmrf62hqu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.learning.RunnerTests"
+              }
+            }
+          ]
         }
       }
     }
