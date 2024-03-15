@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:learning/components/display_box.dart';
 import 'package:learning/components/mybutton.dart';
 import 'package:learning/pages/login_or_signup_page.dart';
+import 'package:learning/pages/test_for_expert.dart';
 // import 'package:learning/pages/login_or_signup_page.dart';
 // import 'package:google_nav_bar/google_nav_bar.dart';
 // import 'package:iconsax/iconsax.dart';
@@ -256,9 +257,24 @@ class ProfilePage extends StatelessWidget {
                     height: 30,
                   ),
 
+                  //Become an expert
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: MyButton(
+                        text: "Become expert",
+                        onTap: () async {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      test_for_expert_list()));
+                        }),
+                  ),
+
                   //log out
                   Padding(
-                    padding: const EdgeInsets.only(top: 50),
+                    padding: const EdgeInsets.only(top: 10),
                     child: MyButton(
                         text: "LOG OUT",
                         onTap: () async {
@@ -269,7 +285,7 @@ class ProfilePage extends StatelessWidget {
                                   builder: (context) =>
                                       const LoginOrSignupPage()));
                         }),
-                  )
+                  ),
                 ]),
               ),
             ));
