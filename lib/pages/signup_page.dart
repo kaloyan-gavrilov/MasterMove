@@ -58,13 +58,12 @@ class _SignUpPageState extends State<SignUpPage> {
         });
 
         Navigator.pop(context);
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => NavBar()));
+        Navigator.push( 
+          context, MaterialPageRoute(builder: (context) => NavBar()));
       } else {
         Navigator.pop(context);
         showErrorMessage("Passwords don't match");
       }
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       showErrorMessage(e.code);
     }
