@@ -35,7 +35,10 @@ class AuthService {
             .set({
           'username': username,
           'uid': userCredential.user!.uid,
-          'email': userCredential.user!.email
+          'email': userCredential.user!.email,
+          'type': 'student',
+          'level': 0,
+          'exp': 0
         });
       }
 

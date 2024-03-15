@@ -38,11 +38,12 @@ class _LoginPageState extends State<LoginPage> {
         password: passwordController.text,
       );
       Navigator.pop(context);
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => NavBar()));
     } on FirebaseAuthException catch (e) {
       showErrorMessage(e.code);
     }
-
-    Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar()));
   }
 
   //error message

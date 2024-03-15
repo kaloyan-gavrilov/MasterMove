@@ -51,21 +51,23 @@ class _SignUpPageState extends State<SignUpPage> {
             .set({
           'username': usernameController.text.split('@')[0],
           'uid': userCredential.user!.uid,
-          'email': userCredential.user!.email
+          'email': userCredential.user!.email,
+          'type': 'student',
+          'level': 0,
+          'exp': 0
         });
 
         Navigator.pop(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => NavBar()));
       } else {
         Navigator.pop(context);
         showErrorMessage("Passwords don't match");
       }
-
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       showErrorMessage(e.code);
     }
-
-    Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar()));
   }
 
   //error message
