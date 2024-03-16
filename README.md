@@ -22,3 +22,7 @@ MasterMove is a mobile app designed to educate users on various topics (hobbies)
 - Flutter
 - Dart
 - Firebase
+
+## Video Demo
+- ### Link to Google Disk with the screen record
+https://drive.google.com/drive/u/0/folders/1XL_eFXSKT4uwsNb6JCMT_vWhEOM78HRe
