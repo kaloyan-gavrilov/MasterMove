@@ -6,7 +6,7 @@
 
 ## What is MasterMove
 
-MasterMove is a mobile app designed to educate users on various topics (hobbies) and connect them with experts on the subject and other users, all in an interactive and fun way. Whether you want to improve your chess skills, master a new musical instrument, or perfect your photography skills,  MasterMove can be of help.
+MasterMove is a mobile app designed to educate users on various topics (hobbies) and connect them with experts on the subject and other users, all in an interactive and fun way. Whether you want to become proficient in chess, master a new musical instrument, or perfect your photography skills,  MasterMove can be of help.
 
 ## Features
 
